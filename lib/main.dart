@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_with_authentcation/providers/todo_provider.dart';
+import 'package:todo_with_authentcation/screens/signin_page.dart';
+import 'package:todo_with_authentcation/screens/todo_page.dart';
+
+import 'screens/signup_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,46 +15,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const SignUp(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.person,
-                  size: 40,
-                )),
-          )
-        ],
-        title: const Text(
-          'Signup',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 30,
-          ),
+    return ChangeNotifierProvider(
+      create: (context) => todoProvider(),
+      builder: (context, child) => MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
         ),
-        centerTitle: true,
+        initialRoute: SignUp.route,
+        routes: {
+          SignUp.route: (context) => const SignUp(),
+          SignIn.route: (context) => const SignIn(),
+          TodoPage.route: (context) => ChangeNotifierProvider(
+              create: (context) => todoProvider(),
+              builder: (context, child) => const TodoPage())
+        },
+        debugShowCheckedModeBanner: false,
       ),
-      body: ,
     );
   }
 }
