@@ -13,6 +13,11 @@ class TodoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var username = ModalRoute.settingsOf(context)!.arguments.toString();
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          modalsheet(context);
+        },
+      ),
       backgroundColor: const Color(0xffffffff),
       appBar: PreferredSize(
           preferredSize: const Size(double.infinity, 350),
@@ -21,7 +26,7 @@ class TodoPage extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             height: 250,
             decoration: const BoxDecoration(
-                color: Colors.blue,
+                color: Colors.deepPurple,
                 borderRadius:
                     BorderRadius.only(bottomRight: Radius.circular(130))),
             child: Column(
@@ -70,4 +75,46 @@ class TodoPage extends StatelessWidget {
       ),
     );
   }
+}
+
+void modalsheet(BuildContext context) {
+  showModalBottomSheet(
+    backgroundColor: Colors.deepPurple,
+    context: context,
+    builder: (context) => Container(
+      width: double.infinity,
+      height: double.infinity,
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        children: [
+          const Text(
+            'Add todo',
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 40, color: Colors.white),
+          ),
+          TextFormField(
+            style: const TextStyle(fontSize: 25),
+            decoration: const InputDecoration(
+                filled: true,
+                fillColor: Color(0xeeeeffff),
+                contentPadding: EdgeInsets.all(20),
+                label: Text(
+                  'Header',
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.all(Radius.circular(22)))),
+          ),
+          FloatingActionButton(
+            onPressed: () {},
+            child: const Text('add'),
+          )
+        ],
+      ),
+    ),
+  );
 }
