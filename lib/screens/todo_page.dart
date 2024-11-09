@@ -11,6 +11,7 @@ class TodoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var username = ModalRoute.settingsOf(context)!.arguments.toString();
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       appBar: PreferredSize(
@@ -23,10 +24,10 @@ class TodoPage extends StatelessWidget {
                 color: Colors.blue,
                 borderRadius:
                     BorderRadius.only(bottomRight: Radius.circular(130))),
-            child: const Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Todo App',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -34,8 +35,8 @@ class TodoPage extends StatelessWidget {
                       color: Colors.white),
                 ),
                 Text(
-                  'User: Hasan',
-                  style: TextStyle(
+                  'User: $username',
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 40,
                       fontWeight: FontWeight.bold),

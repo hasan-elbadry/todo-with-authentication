@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_with_authentcation/providers/signin_provider.dart';
 import 'package:todo_with_authentcation/providers/todo_provider.dart';
 import 'package:todo_with_authentcation/screens/signin_page.dart';
 import 'package:todo_with_authentcation/screens/todo_page.dart';
@@ -26,7 +27,9 @@ class MyApp extends StatelessWidget {
         initialRoute: SignUp.route,
         routes: {
           SignUp.route: (context) => const SignUp(),
-          SignIn.route: (context) => const SignIn(),
+          SignIn.route: (context) => ChangeNotifierProvider(
+              create: (context) => SigninProvider(),
+              builder: (context, child) => const SignIn()),
           TodoPage.route: (context) => ChangeNotifierProvider(
               create: (context) => todoProvider(),
               builder: (context, child) => const TodoPage())
