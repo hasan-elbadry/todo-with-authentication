@@ -5,6 +5,7 @@ Widget textFieldCustom(String name, IconData icon, bool isPassword) {
     children: [
       const SizedBox(height: 10),
       TextFormField(
+        validator: (value) => value == null || value.isEmpty?'field is required':null,
         obscureText: isPassword,
         style: const TextStyle(
           color: Colors.black38,
