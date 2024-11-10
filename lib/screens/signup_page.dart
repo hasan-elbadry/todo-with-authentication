@@ -43,7 +43,7 @@ class SignUp extends StatelessWidget {
                 'Create your account',
                 style: TextStyle(
                   color: Colors.black38,
-                  fontSize: 27,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -58,13 +58,13 @@ class SignUp extends StatelessWidget {
                   style: const ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(Colors.blue),
                       padding: WidgetStatePropertyAll(
-                          EdgeInsets.symmetric(horizontal: 130, vertical: 15)),
+                          EdgeInsets.symmetric(horizontal: 120, vertical: 15)),
                       foregroundColor: WidgetStatePropertyAll(Colors.white)),
                   child: const Text(
                     'Signup',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 35,
+                      fontSize: 25,
                     ),
                   ),
                 ),
@@ -77,15 +77,15 @@ class SignUp extends StatelessWidget {
                   },
                   style: const ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(Colors.white),
-                    padding: WidgetStatePropertyAll(
-                        EdgeInsets.symmetric(horizontal: 140, vertical: 15)),
+                      padding: WidgetStatePropertyAll(
+                          EdgeInsets.symmetric(horizontal: 120, vertical: 15)),
                     foregroundColor: WidgetStatePropertyAll(Colors.blue),
                   ),
                   child: const Text(
                     'signin',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 35,
+                      fontSize: 25,
                     ),
                   ),
                 ),

@@ -7,7 +7,6 @@ Widget textFieldCustom(String name, IconData icon, bool isPassword) {
       TextFormField(
         obscureText: isPassword,
         style: const TextStyle(
-          fontSize: 25,
           color: Colors.black38,
         ),
         decoration: InputDecoration(
@@ -15,7 +14,7 @@ Widget textFieldCustom(String name, IconData icon, bool isPassword) {
             padding: const EdgeInsets.only(left: 7),
             child: Icon(
               icon,
-              size: 35,
+              size: 25,
               color: Colors.black38,
             ),
           ),
@@ -26,8 +25,9 @@ Widget textFieldCustom(String name, IconData icon, bool isPassword) {
               name,
               style: const TextStyle(
                   color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
+                fontSize: 17,
+                fontWeight: FontWeight.bold
+              )
             ),
           ),
           enabledBorder: OutlineInputBorder(
